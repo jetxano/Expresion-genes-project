@@ -2,15 +2,16 @@
 
 ## Introducción
 
-Este proyecto tiene como objetivo analizar la expresión génica de un conjunto de muestras utilizando datos de RNA-Seq. Se emplean herramientas bioinformáticas para procesar, cuantificar y visualizar la información genética, permitiendo la identificación de genes diferencialmente expresados y su impacto biológico.
+Este proyecto tiene como objetivo analizar la expresión génica de un conjunto de muestras utilizando datos de RNA-Seq.
+Se emplearán herramientas bioinformáticas para procesar, cuantificar y visualizar la información genética, permitiendo la identificación de genes diferencialmente expresados y su impacto biológico.
 
 ## Objetivos
 
-Procesar y limpiar datos de RNA-Seq 
-Realizar alineación de secuencias contra un genoma de referencia
-Cuantificar la expresión génica
-Identificar genes diferencialmente expresados
-Interpretar resultados mediante análisis funcional 
+- Procesar y limpiar datos de RNA-Seq 
+- Realizar alineación de secuencias contra un genoma de referencia
+- Cuantificar la expresión génica
+- Identificar genes diferencialmente expresados
+- Interpretar resultados mediante análisis funcional 
 
 ## Estructura
 
@@ -30,11 +31,11 @@ En esta carpeta se guardan los archivos con código que usaremos en el proyecto
 
 ## HERRAMIENTAS
 
-FastQC (Calidad de secuencias)
+- FastQC (Calidad de secuencias)
 
-Trimmomatic o Cutadapt (Filtración y recorte)
+- Trimmomatic o Cutadapt (Filtración y recorte)
 
-STAR / HISAT2 (Alineación de RNA-Seq)
+- STAR / HISAT2 (Alineación de RNA-Seq)
 
 FeatureCounts / HTSeq-count (Cuantificación de expresión génica)
 
