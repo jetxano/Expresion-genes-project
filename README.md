@@ -1,12 +1,12 @@
 # Expresion-genes-project
 
-## Introducción
+## INTRODUCCIÓN
 
 Este proyecto tiene como objetivo analizar la expresión génica de un conjunto de muestras utilizando datos de RNA-Seq.
 
 Se emplearán herramientas bioinformáticas para procesar, cuantificar y visualizar la información genética, permitiendo la identificación de genes diferencialmente expresados y su impacto biológico.
 
-## Objetivos
+## OBJETIVOS
 
 - Procesar y limpiar datos de RNA-Seq.
 - Realizar alineación de secuencias contra un genoma de referencia.
@@ -14,7 +14,7 @@ Se emplearán herramientas bioinformáticas para procesar, cuantificar y visuali
 - Identificar genes diferencialmente expresados.
 - Interpretar resultados mediante análisis funcional. 
 
-## Estructura
+## ESTRUCTURA
 
 El proyecto está dividido en varias carpetas.
 
@@ -30,7 +30,7 @@ En esta carpeta se guardarán las bases de datos del proyecto.
 
 En esta carpeta se guardarán los archivos con código que usaremos en el proyecto.
 
-## Herramientas
+## HERRAMIENTAS
 
 - FastQC: Calidad de las secuencias.
 
