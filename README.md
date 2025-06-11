@@ -18,11 +18,11 @@ Se emplearán herramientas bioinformáticas para procesar, cuantificar y visuali
 
 El proyecto está dividido en varias carpetas.
 
-### DOCS
+### Documentos
 
 En esta carpeta se guardarán los archivos complementarios, presentaciones, esquemas, etc; que serán de utilidad para el proyecto.
 
-### DATASETS
+### Datasets
 
 En esta carpeta se guardarán las bases de datos del proyecto.
 
@@ -30,7 +30,7 @@ En esta carpeta se guardarán las bases de datos del proyecto.
 
 En esta carpeta se guardarán los archivos con código que usaremos en el proyecto.
 
-## HERRAMIENTAS
+## Herramientas
 
 - FastQC: Calidad de las secuencias.
 
