@@ -9,7 +9,8 @@ Este proyecto tiene como objetivo analizar la expresión génica de un conjunto 
 Procesar y limpiar datos de RNA-Seq 
 Realizar alineación de secuencias contra un genoma de referencia
 Cuantificar la expresión génica
-Identificar genes diferencialmente expresados Interpretar resultados mediante análisis funcional 
+Identificar genes diferencialmente expresados
+Interpretar resultados mediante análisis funcional 
 
 ## Estructura
 
@@ -17,7 +18,7 @@ El proyecto está dividido en varias carpetas
 
 ### DOCS
 
-En esta carpeta se guardan los archivos complementarios, presentaciones, esquemas... que uedan resultar de utilidad para el proyecto.
+En esta carpeta se guardan los archivos complementarios, presentaciones, esquemas... que son de utilidad para el proyecto.
 
 ### DATASETS
 
@@ -25,7 +26,7 @@ En esta carpeta se guardan las bases de datos del proyecto
 
 ### SRC
 
-En esta carpeta se guarda los archivos con código que usaremos en el proyecto
+En esta carpeta se guardan los archivos con código que usaremos en el proyecto
 
 ## HERRAMIENTAS
 
