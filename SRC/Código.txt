@@ -1,0 +1,136 @@
+# Reseteamos entorno de R ---
+rm (list = ls())
+
+#Instalamos los pquetes y las librerias a usar 
+
+##Paquetes
+install.packages("pheatmap")
+install.packages("dplyr")
+install.packages ("tidyverse")
+
+##Instalamos ComplexHeatmap
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+
+BiocManager::install("ComplexHeatmap")
+
+
+# Importar CSV ---
+
+## Establecemos directorio donde cogeremos el archivo 
+getwd() #verificamos donde tenemos el directorio
+
+path <- "/Users/Downloads"
+setwd(path)
+
+
+```{r}
+##Librerías
+suppressPackageStartupMessages({
+  library(ggplot2)
+  library(pheatmap)
+  library(ComplexHeatmap)
+  library(patchwork)
+  library(dplyr)
+  library(tidyverse)
+  library(tidyr)
+})
+
+## Utilizando read.csv() 
+## Importamos el archivo .csv que se encuentra en la ruta especifica
+df <- read.csv("Dataset expresión genes.csv", header = TRUE, sep = ",")
+
+# Punto 1 Boxplot ---
+
+## Especificamos los genes de interés 
+genes <- c("AQ_ALOX5", "AQ_CD274", "AQ_CHKA","AQ_CSF2", "AQ_FOXO3", "AQ_IL6", "AQ_LDHA", "AQ_LIF", "AQ_MAPK1", "AQ_NOS2", "AQ_IFNG", "AQ_PDCD1", "AQ_PPARG", "AQ_TGFB1", "AQ_TNF")
+
+## Seleccionamos las columnas relevantes y reorganizamos a formato largo 
+df_genes <- df %>%
+  select(trat, all_of(genes)) %>%
+  pivot_longer(cols = -trat, names_to = "gen", values_to = "expresion")
+
+
+##Creamos diagrama de cajas para tratA y tratB
+
+## boxplot tratA
+df_tratA <- df_genes %>% filter(trat == "tratA")
+plotA <- ggplot(df_tratA, aes(x = gen, y = expresion)) +
+  geom_boxplot(fill = "#619CFF") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(title = "Expresión Génica - Tratamiento A", x = "Gen", y = "Expresión")
+print(plotA)
+
+## boxplot tratB
+df_tratB <- df_genes %>% filter(trat == "tratB")
+plotB <- ggplot(df_tratB, aes(x = gen, y = expresion)) +
+  geom_boxplot(fill = "#F8766D") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(title = "Expresión Génica - Tratamiento B", x = "Gen", y = "Expresión")
+print(plotB)
+  
+### Combinamos ambos gráficos
+
+combined_plot <- (plotA + plotB) + 
+  plot_layout(guides = "collect") +  # para compartir leyendas si las hubiera
+  plot_annotation(title = "Expresión Génica bajo Tratamientos A y B")
+
+### Mostrar la figura combinada
+combined_plot
+
+
+#### ¿Qué interpretación sacas de la distribución de la expresión de los genes cuando los comparamos por tipo de tratamiento? --- 
+
+#### R/ AQ_ALOX5 muestra una expresión superior en tratamiento A, con una mediana superior y una dispersión reducida.  Se detectó 1 variante en tratamiento A y ninguna en tratamiento B, lo que indica una expresión más estable en tratamiento B. AQ_FOXO3 presenta una caja compacta y uniforme en tratamiento A, en contraste con una caja más alargada y una mediana inferior en tratamiento B. Se detectaron 1 y 2 puntos de referencia en tratamientos A y B, respectivamente, lo que señala una mayor variabilidad en B. AQ_LDHA muestra una expresión central más elevada en tratamiento B, sin embargo, muestra 2 puntos de referencia en tratamiento A y ninguno en B, lo que indica una respuesta más uniforme bajo tratamiento B.AQ_MAPK1 presenta un tratamiento A con una caja de tamaño más reducido y un tratamiento A con una caja de tamaño medio inferior, lo que señala una dispersión puntual en cada conjunto. AQ_TGFB1 muestra una dispersión superior en tratamiento B, aunque con una mediana inferior.Se identificaron 4 puntos de referencia en tratamiento A y únicamente 1 en B, lo que muestra una expresión más fluctuante en A. AQ_TNF evidenció valores sin identificación de puntos de referencia en ninguno de los tratamientos, lo que señala estabilidad en su manifestación.Estos hallazgos fortalecen los patrones diferenciales de expresión y variabilidad a medida que se trata.
+
+
+# Punto 2 Histograma --- 
+
+## Variables a analizar 
+variables <- c("glucosa", "leucocitos", "linfocitos", "neutrofilos", "chol", "hdl",
+               "hierro", "igA", "igE", "igG", "igN", "ldl", "pcr", "transferrina",
+               "trigliceridos", "cpk")
+## Transofrmar a formato largo
+df_long <- df %>%
+  select(all_of(variables)) %>%
+  pivot_longer(cols = everything(), names_to = "variable", values_to = "valor")
+
+## Grafica teniendo en cuenta las densidades
+ggplot(df_long, aes(x = valor)) +
+  geom_density(fill = "#69b3a2", alpha = 0.6, adjust = 1) +
+  facet_wrap(~variable, scales = "free", ncol = 4) +
+  theme_minimal() +
+  labs(title = "Distribución de variables clínicas (Densidad)",
+       x = "Valor", y = "Densidad")
+       
+## Histograma
+ggplot(df_long, aes(x = valor)) +
+  geom_histogram(aes(y = ..density..), fill = "blue", color = "black", alpha = 0.7, bins = 30) +
+  geom_density(color = "red", size = 1.5) +
+  labs(title = "Frecuencia de parámetros bioquímicos",
+       x = "Parámetro", y = "Frecuencia") +
+  theme_minimal()
+
+### ¿Qué interpretación sacas de la distribución de los datos de las variables bioquímicas en toda la población? ¿Crees que sigue una distribución normal o simétrica en la que se visualiza una distribución parecida a una campana de Gauss? 
+
+#### R/ La distribucion de los datos muestran una asimetría positiva, lo que indica que la mayoría de los datos están agrupados en valores bajos, pero con una cola que se extiende hacia valores superiores. Esta distribución no presenta una forma homogénea ni exhibe la curva de una distribución regular, sino que se caracteriza por un sesgo dirigido hacia la derecha. Este comportamiento indica que los datos poblacionales muestran una distribución sesgada, lo que podría estar relacionado con la presencia de ciertos pacientes con anomalías o valores elevados en ciertos parámetros. Esto normalmente ocurre en parámetros bioquímicos como la glucosa, el colesterol y los triglicéridos, que pueden verse influenciados por elementos como el modo de vida, enfermedades metabólicas o cardiovasculares, o condiciones específicas de los pacientes. Además, la cola extendida hacia la derecha indica que hay pocos pacientes con valores elevados, pero lo suficientemente altos para influir de manera considerable en la forma de la distribución. En este escenario, se nota una diversidad en la población en relación a los parámetros evaluados, con la mayoría de los pacientes presentando resultados en un valor más disminuido.
+
+
+# Punto 3 Heatmap ---
+
+# Fijar semilla
+set.seed(1995)
+
+# Selección y escalado de genes AQ
+genes_aq <- df %>%
+  select(starts_with("AQ_"))
+
+genes_scaled <- scale(genes_aq)
+
+# Heatmap
+pheatmap(genes_scaled,name = "Expresión génica", main = "Heatmap de expresión génica (genes AQ)")
+        
+### ¿Hay algún tipo de patrón de pacientes que tiene la expresión de genes similar o diferenciada? ¿Hay grupos de genes con patrones de expresión similares o diferenciadas? 
+
+#### R/ Se puede notar en el heatmap que existen ciertos patrones de agrupación tanto entre los pacientes como entre los genes.  Los pacientes se categorizan de acuerdo a su perfil genético de expresión, lo que señala la existencia de subgrupos con características genéticas similares.  Algunos pacientes muestran patrones de expresión homogéneos, mientras que otros muestran una variabilidad significativa en la expresión genética, lo que podría estar relacionado con fluctuaciones en sus condiciones de salud o características individuales. En relación con los genes, también se pueden identificar grupos con patrones de expresión similares o diferentes. Algunos genes demuestran una correlación clara en su expresión en los pacientes, mientras que otros presentan variabilidad, lo que indica que podrían involucrarse en procesos biológicos distintos. Estos hallazgos indican que algunos genes podrían estar regulados de manera global, mientras que otros podrían exhibir una conducta más autónoma en cuanto a su regulación y manifestación. Esta investigación pone énfasis en la variedad biológica de los pacientes, lo que podría implicar la detección de biomarcadores o la exploración de nuevas estrategias terapéuticas.
+
