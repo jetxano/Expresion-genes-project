@@ -16,7 +16,7 @@ Se emplearán herramientas bioinformáticas para procesar, cuantificar y visuali
 
 ## ESTRUCTURA
 
-El proyecto está dividido en varias carpetas.
+El proyecto está dividido en varias carpetas:
 
 ### Documentos
 
@@ -28,19 +28,23 @@ En esta carpeta se guardarán las bases de datos del proyecto.
 
 ### SRC
 
-En esta carpeta se guardarán los archivos con código que usaremos en el proyecto.
+En esta carpeta se guardarán los archivos con el código fuente que usaremos en el proyecto.
 
-## HERRAMIENTAS
+## HERRAMIENTAS UTILIZADAS
 
-- *FastQC*: Calidad de las secuencias.
+- *FastQC*: Control de calidad de las secuencias.
 
-- *Trimmomatic* o *Cutadapt*: Filtración y recorte.
+- *Trimmomatic* o *Cutadapt*: Filtración y recorte se secuencias.
 
-- *STAR* / *HISAT2*: Alineación del RNA-Seq.
+- *STAR* / *HISAT2*: Alineación del RNA-Seq al genoma de referencia.
 
 - *FeatureCounts* / *HTSeq-count*: Cuantificación de la expresión génica.
 
-- *DESeq2* / *EdgeR*: Análisis diferencial.
+- *DESeq2* / *EdgeR*: Análisis de expresión diferencial.
 
-- *ggplot2*, *ComplexHeatmap*: Visualización.
+- *ggplot2*, *ComplexHeatmap*: Visualización de datos.
+
+## Enlace al respositorio 
+[Acceder al repositorio](https://github.com/jetxano/Expresion-genes-project)
+
 
