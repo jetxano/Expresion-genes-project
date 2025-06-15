@@ -18,17 +18,9 @@ Se emplearán herramientas bioinformáticas para procesar, cuantificar y visuali
 
 El proyecto está dividido en varias carpetas:
 
-### Documentos
-
-En esta carpeta se guardarán los archivos complementarios, presentaciones, esquemas, etc; que serán de utilidad para el proyecto.
-
-### Datasets
-
-En esta carpeta se guardarán las bases de datos del proyecto.
-
-### SRC
-
-En esta carpeta se guardarán los archivos con el código fuente que usaremos en el proyecto.
+-**Documentos**: En esta carpeta se guardarán los archivos complementarios, presentaciones, esquemas, etc; que serán de utilidad para el proyecto.
+-**Datasets**: En esta carpeta se guardarán las bases de datos del proyecto.
+-**SRC**: En esta carpeta se guardarán los archivos con el código fuente que usaremos en el proyecto.
 
 ## HERRAMIENTAS UTILIZADAS
 
@@ -43,6 +35,16 @@ En esta carpeta se guardarán los archivos con el código fuente que usaremos en
 - *DESeq2* / *EdgeR*: Análisis de expresión diferencial.
 
 - *ggplot2*, *ComplexHeatmap*: Visualización de datos.
+
+## INSTRUCCIONES DE USO
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/jetxano/Expresion-genes-project.git
+   cd Expresion-genes-project 
+
+2. Instalar las herramientas mencionadas en la sección anterior
+3. Colocar los datos de RNA-Seq que se quieran analizar en la carpeta Datasets/.
+4. Ejecutar los scripts de análisis ubicados en la carpeta SRC/.
 
 ## ENLACE AL REPOSITORIO
 [Acceder al repositorio](https://github.com/jetxano/Expresion-genes-project)
