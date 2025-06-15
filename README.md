@@ -49,6 +49,7 @@ En esta carpeta se guardarán los archivos con el código fuente que usaremos en
 
 ## Licencia
 Este proyecto se encuentra baqjo la licencia de **[GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html)**.  
+Para más detalles, consulta: [`LICENSE`](LICENSE)
 
 ## Autores
 - [@Marianjucar](https://github.com/Marianjucar)
