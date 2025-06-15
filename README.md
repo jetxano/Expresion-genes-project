@@ -34,17 +34,17 @@ El proyecto está dividido en varias carpetas:
 
 - *DESeq2* / *EdgeR*: Análisis de expresión diferencial.
 
-- *ggplot2*, *ComplexHeatmap*: Visualización de datos.
+- *R* con los paquetes *ggplot2*, *ComplexHeatmap*: Visualización de datos.
 
 ## INSTRUCCIONES DE USO
 1. Clonar el repositorio:
    ```bash
    git clone https://github.com/jetxano/Expresion-genes-project.git
    cd Expresion-genes-project 
-
-2. Instalar las herramientas mencionadas en la sección anterior
-3. Colocar los datos de RNA-Seq que se quieran analizar en la carpeta Datasets/.
-4. Ejecutar los scripts de análisis ubicados en la carpeta SRC/.
+ ´´´
+2. Instalar las herramientas mencionadas en la sección anterior.
+3. Copiar los archivos de secuenciación RNA-Seq dentro de la carpeta Datasets/.
+4. Ejecutar los scripts ubicados en SRC/.
 
 ## ENLACE AL REPOSITORIO
 [Acceder al repositorio](https://github.com/jetxano/Expresion-genes-project)
