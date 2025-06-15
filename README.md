@@ -48,7 +48,7 @@ En esta carpeta se guardarán los archivos con el código fuente que usaremos en
 [Acceder al repositorio](https://github.com/jetxano/Expresion-genes-project)
 
 ## LICENCIA
-Este proyecto se encuentra baqjo la licencia de **[GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html)**.  
+Este proyecto se encuentra bajo la licencia de **[GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html)**.  
 Para más detalles, consulta: [`LICENSE`](LICENSE)
 
 ## AUTORES
