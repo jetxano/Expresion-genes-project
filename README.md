@@ -37,11 +37,11 @@ El proyecto está dividido en varias carpetas:
 - *R* con los paquetes *ggplot2*, *ComplexHeatmap*: Visualización de datos.
 
 ## INSTRUCCIONES DE USO
-1. Clonar el repositorio:
+1. Abrir terminal, clonar el repositorio y ejecutar:
    ```bash
    git clone https://github.com/jetxano/Expresion-genes-project.git
    cd Expresion-genes-project 
- ´´´
+
 2. Instalar las herramientas mencionadas en la sección anterior.
 3. Copiar los archivos de secuenciación RNA-Seq dentro de la carpeta Datasets/.
 4. Ejecutar los scripts ubicados en SRC/.
